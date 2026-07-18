@@ -95,6 +95,9 @@ import { profile, certifications } from '../data/site';
       const ctx = canvas.getContext('2d')!;
       const CELL = 82;
       const LINK = 110;
+      let cell = CELL;
+      let link = LINK;
+      let dotScale = 1;
       const RADIUS = 110;
       const PUSH = 18;
       let dots: {
@@ -188,15 +191,19 @@ import { profile, certifications } from '../data/site';
         canvas.width = innerWidth * dpr;
         canvas.height = innerHeight * dpr;
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const k = innerWidth < 700 ? 0.72 : 1;
+        cell = CELL * k;
+        link = LINK * k;
+        dotScale = innerWidth < 700 ? 0.85 : 1;
         dots = [];
-        for (let y = 0; y < innerHeight; y += CELL)
-          for (let x = 0; x < innerWidth; x += CELL) {
-            const hx = x + Math.random() * CELL;
-            const hy = y + Math.random() * CELL;
+        for (let y = 0; y < innerHeight; y += cell)
+          for (let x = 0; x < innerWidth; x += cell) {
+            const hx = x + Math.random() * cell;
+            const hy = y + Math.random() * cell;
             const bright = Math.random() < 1 / 15;
             dots.push({
               hx, hy, x: hx, y: hy,
-              r: bright ? 2 + Math.random() * 0.8 : 1 + Math.random(),
+              r: (bright ? 2 + Math.random() * 0.8 : 1 + Math.random()) * dotScale,
               a: bright ? 0.72 + Math.random() * 0.22 : 0.5 + Math.random() * 0.5,
               bright,
             });
@@ -218,10 +225,10 @@ import { profile, certifications } from '../data/site';
           for (let j = i + 1; j < dots.length; j++) {
             const a = dots[i], b = dots[j];
             const dx = a.x - b.x;
-            if (dx > LINK || dx < -LINK) continue;
+            if (dx > link || dx < -link) continue;
             const dist = Math.hypot(dx, a.y - b.y);
-            if (dist < LINK) {
-              ctx.globalAlpha = 0.45 * (1 - dist / LINK);
+            if (dist < link) {
+              ctx.globalAlpha = 0.45 * (1 - dist / link);
               ctx.beginPath();
               ctx.moveTo(a.x, a.y);
               ctx.lineTo(b.x, b.y);
