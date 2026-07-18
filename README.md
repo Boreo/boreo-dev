@@ -1,8 +1,8 @@
 # boreo.dev
 
-Personal site. One page, static Astro build, no client framework. All content lives in `src/data/site.ts`, so changing text, links or certifications never touches markup. Theme is Catppuccin Mocha.
+Personal site. One page, static Astro build, no client framework. Content lives in `src/data/site.ts`. Catppuccin Mocha theme.
 
-The background is a canvas constellation: a jittered grid of dots with distance-faded edges, cursor repel, and an occasional shooting star. The glows and card shadow are pre-rendered per pixel with dither because plain CSS gradients band badly on dark backgrounds. The animation loop stops when nothing is moving and everything respects `prefers-reduced-motion`.
+Canvas constellation background: a jittered grid of dots with distance-faded edges, cursor repel, and an occasional shooting star. The glows and card shadow are pre-rendered per pixel with dither. The animation loop stops when nothing is moving and respects `prefers-reduced-motion`.
 
 ## Structure
 
