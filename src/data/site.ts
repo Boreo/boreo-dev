@@ -1,7 +1,8 @@
 export const profile = {
   name: 'Jarrad Thornton',
   title: 'Data Engineer',
-  email: 'jarrad@boreo.dev',
+  emailUser: 'site',
+  emailDomain: 'boreo.dev',
   github: 'https://github.com/boreo',
   linkedin: 'https://linkedin.com/in/jarradthornton',
 };

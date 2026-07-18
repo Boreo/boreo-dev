@@ -43,7 +43,7 @@ import { profile, certifications } from '../data/site';
             ></path>
           </svg>
         </a>
-        <a href={`mailto:${profile.email}`} aria-label="Email" title="Email">
+        <a href="#" class="email" aria-label="Email" title="Email">
           <svg
             viewBox="0 0 24 24"
             fill="none"
@@ -72,6 +72,11 @@ import { profile, certifications } from '../data/site';
     </div>
     <canvas id="dots" aria-hidden="true"></canvas>
     <script>
+      import { profile } from '../data/site';
+
+      const mail = document.querySelector('.email') as HTMLAnchorElement;
+      mail.href = 'mailto:' + profile.emailUser + '@' + profile.emailDomain;
+
       const card = document.querySelector('.card') as HTMLElement;
       const root = document.documentElement;
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

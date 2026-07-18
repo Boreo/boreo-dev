@@ -1,0 +1,72 @@
+---
+import { profile } from '../data/site';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>404 — {profile.name}</title>
+  </head>
+  <body>
+    <main class="card">
+      <h1>404</h1>
+      <p>Nothing here.</p>
+      <a href="/">boreo.dev</a>
+    </main>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --base: #1e1e2e;
+    --mantle: #181825;
+    --text: #cdd6f4;
+    --subtext: #a6adc8;
+    --blue: #89b4fa;
+    --surface: #313244;
+  }
+
+  * {
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background: var(--base);
+    color: var(--text);
+    font-family: system-ui, -apple-system, sans-serif;
+    min-height: 100dvh;
+    display: grid;
+    place-items: center;
+    padding: 1.25rem;
+  }
+
+  .card {
+    background: var(--mantle);
+    border: 1px solid var(--surface);
+    border-radius: 16px;
+    padding: 2.5rem 2.75rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+  }
+
+  p {
+    color: var(--subtext);
+    margin-top: 0.25rem;
+    font-family: ui-monospace, 'Cascadia Code', monospace;
+  }
+
+  a {
+    display: inline-block;
+    margin-top: 1.5rem;
+    color: var(--blue);
+  }
+</style>
